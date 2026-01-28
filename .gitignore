@@ -1,2 +1,5 @@
-.vscode/
+.vscnode_modules
+.env
 config.h
+node_modules/
+database.sqlite
