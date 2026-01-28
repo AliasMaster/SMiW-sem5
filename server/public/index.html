@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centrum Monitorowania</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <header>
+          <h1>Inteligentne Centrum</h1>
+          <div id="status-badge" class="badge">Łączenie...</div>
+        </header>
+
+        <main>
+          <div class="temp-display">
+            <div class="temp-value"><span id="temp">--</span>°C</div>
+            <div class="temp-label">Aktualna temperatura</div>
+          </div>
+
+          <div class="controls">
+            <div class="threshold-header">
+              <span>Próg alarmowy</span>
+              <span id="threshold-val">--</span>°C
+            </div>
+            <input type="range" id="threshold-slider" min="0" max="100" step="0.5" value="30">
+            <button id="set-btn" class="primary-btn">Zapisz ustawienie</button>
+          </div>
+
+          <div class="chart-header" style="display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
+            <h2 style="font-size: 1rem; margin: 0;">Historia</h2>
+            <div class="range-selector">
+              <button class="range-btn active" data-range="day">24h</button>
+              <button class="range-btn" data-range="month">30d</button>
+              <button class="range-btn" data-range="year">Rok</button>
+            </div>
+          </div>
+          <div class="chart-container" style="height: 200px; margin-top: 10px;">
+            <canvas id="historyChart"></canvas>
+          </div>
+
+          <div id="alarm-banner" class="alarm-banner hidden">
+            ALARM: PRZEKROCZONO PRÓG!
+          </div>
+        </main>
+
+        <footer>
+          System Monitorowania i Wspomagania - Serwer Centralny
+        </footer>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
